@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Documentos • Dell'Iris</title>
+<meta name="description" content="Central de Documentos para facilitar a operação e gestão de todos os licenciados da Dell'Iris - Comida que Abraça!">
+<link rel="icon" href="logo.webp">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordo:#630b0b;
+    --bordo-dark:#2b0000;
+    --bordo-deep:#430505;
+    --cream:#f7f3ee;
+    --cream-2:#efe8df;
+    --card:#ffffff;
+    --border:#eadfd3;
+    --ink:#241713;
+    --ink-soft:#6d5a52;
+    --ink-mut:#9c8b82;
+    --gold:#e7b06a;
+    --accent:#b5491f;
+    --accent-bg:#faece7;
+    --green:#0c7b12;
+    --radius:16px;
+    --shadow:0 1px 2px rgba(43,0,0,.04),0 8px 24px -12px rgba(43,0,0,.18);
+    --shadow-hover:0 8px 20px -6px rgba(99,11,11,.28);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Inter",-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  svg.ic{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex-shrink:0;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(1200px 480px at 85% -10%, rgba(231,176,106,.22), transparent 60%),
+      linear-gradient(160deg,var(--bordo) 0%, var(--bordo-deep) 55%, var(--bordo-dark) 100%);
+    color:#fff;
+    border-bottom:3px solid var(--gold);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(600px 300px at 15% 120%, rgba(231,176,106,.12), transparent 70%);
+  }
+  .hero-inner{position:relative;z-index:1;padding:26px 0 64px;}
+  .brand{display:flex;align-items:center;gap:12px;padding:8px 0 34px;}
+  .brand img{width:46px;height:46px;border-radius:12px;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+  .brand .bn{font-family:"Fraunces",serif;font-weight:600;font-size:19px;letter-spacing:.2px;}
+  .brand .bt{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-top:-2px;}
+  .brand .socials{margin-left:auto;display:flex;gap:8px;}
+  .brand .socials a{
+    width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);font-size:19px;transition:.18s;
+  }
+  .brand .socials a:hover{background:rgba(255,255,255,.18);transform:translateY(-2px);}
+
+  .hero h1{
+    font-family:"Fraunces",serif;font-weight:600;
+    font-size:clamp(32px,5.4vw,54px);line-height:1.05;margin:0 0 16px;max-width:14ch;letter-spacing:-.5px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero p.lead{font-size:clamp(15px,2.2vw,18px);color:rgba(255,255,255,.82);max-width:56ch;margin:0 0 30px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--gold);background:rgba(231,176,106,.12);border:1px solid rgba(231,176,106,.3);
+    padding:6px 14px;border-radius:999px;margin-bottom:22px;font-weight:600;
+  }
+
+  /* ===== FAQ CALLOUT ===== */
+  .faq-callout{
+    display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+    background:linear-gradient(135deg,#fff 0%,var(--accent-bg) 100%);
+    color:var(--ink);border-radius:20px;padding:22px 26px;
+    box-shadow:0 18px 40px -18px rgba(43,0,0,.55);
+    border:1px solid rgba(181,73,31,.18);
+  }
+  .faq-callout .fc-ic{
+    width:56px;height:56px;flex-shrink:0;border-radius:16px;display:flex;align-items:center;justify-content:center;
+    background:var(--accent);color:#fff;font-size:30px;box-shadow:0 8px 18px -6px rgba(181,73,31,.6);
+  }
+  .faq-callout .fc-txt{flex:1;min-width:200px;}
+  .faq-callout .fc-txt strong{display:block;font-family:"Fraunces",serif;font-size:20px;font-weight:600;margin-bottom:2px;}
+  .faq-callout .fc-txt span{font-size:14px;color:var(--ink-soft);}
+  .faq-callout .fc-btn{
+    display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;
+    padding:13px 24px;border-radius:999px;font-weight:600;font-size:15px;transition:.18s;white-space:nowrap;
+  }
+  .faq-callout .fc-btn:hover{background:#953a17;transform:translateY(-2px);box-shadow:0 10px 22px -8px rgba(181,73,31,.7);}
+
+  /* ===== NAV ===== */
+  .navbar{position:sticky;top:0;z-index:50;background:rgba(247,243,238,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+  .nav-inner{display:flex;gap:8px;overflow-x:auto;padding:12px 20px;max-width:1080px;margin:0 auto;scrollbar-width:none;}
+  .nav-inner::-webkit-scrollbar{display:none;}
+  .nav-inner a{
+    white-space:nowrap;font-size:13.5px;font-weight:500;color:var(--ink-soft);
+    padding:8px 15px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.15s;display:flex;align-items:center;gap:7px;
+  }
+  .nav-inner a:hover{border-color:var(--bordo);color:var(--bordo);}
+  .nav-inner a i{font-size:15px;}
+
+  /* ===== SECTIONS ===== */
+  main{padding:16px 0 40px;}
+  .section{padding:40px 0 8px;scroll-margin-top:70px;}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
+  .sec-head .sh-ic{
+    width:44px;height:44px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+    background:var(--bordo);color:var(--gold);font-size:23px;
+  }
+  .sec-head h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(22px,3vw,28px);margin:0;letter-spacing:-.3px;}
+  .sec-head p{margin:2px 0 0;font-size:13.5px;color:var(--ink-mut);}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px;}
+
+  .card{
+    position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:22px 20px 20px;display:flex;flex-direction:column;gap:14px;
+    box-shadow:var(--shadow);transition:.2s ease;overflow:hidden;
+  }
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--bordo);opacity:0;transition:.2s;}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:#e2d2c4;}
+  .card:hover::before{opacity:1;}
+  .card .c-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+  .card .c-ic{
+    width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    background:var(--accent-bg);color:var(--accent);font-size:24px;
+  }
+  .card .c-tag{
+    font-size:10.5px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;color:var(--ink-mut);
+    display:inline-flex;align-items:center;gap:5px;background:var(--cream-2);padding:5px 10px;border-radius:999px;
+  }
+  .card .c-ic svg.ic{width:26px;height:auto;}
+  .card .c-tag.file{color:#7a4a15;background:#f6ecdb;}
+  .card .c-tag.folder{color:#3a5a3a;background:#e8f0e6;}
+  .card h3{font-size:16.5px;font-weight:600;margin:0;line-height:1.3;letter-spacing:-.2px;}
+  .card .c-sub{font-size:13px;color:var(--ink-soft);margin:-6px 0 0;}
+  .card .c-go{
+    margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--bordo);
+    padding-top:6px;
+  }
+  .card .c-go i{transition:transform .18s;}
+  .card:hover .c-go i{transform:translateX(4px);}
+
+  /* revenue badge */
+  .card .c-badge{
+    position:absolute;top:16px;right:16px;font-size:11px;font-weight:700;color:#fff;
+    background:linear-gradient(135deg,var(--bordo),var(--bordo-deep));padding:5px 11px;border-radius:999px;letter-spacing:.3px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--bordo-dark);color:rgba(255,255,255,.72);margin-top:48px;border-top:3px solid var(--gold);}
+  .foot-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:34px 20px;max-width:1080px;margin:0 auto;}
+  .foot-inner .fl{display:flex;align-items:center;gap:12px;}
+  .foot-inner .fl img{width:42px;height:42px;border-radius:11px;object-fit:cover;}
+  .foot-inner .fl .fbn{font-family:"Fraunces",serif;font-weight:600;color:#fff;font-size:16px;}
+  .foot-inner .fl .fbt{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+  .foot-socials{display:flex;gap:10px;}
+  .foot-socials a{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);font-size:20px;transition:.18s;}
+  .foot-socials a:hover{background:rgba(255,255,255,.18);color:#fff;transform:translateY(-2px);}
+  .copy{text-align:center;font-size:12.5px;color:rgba(255,255,255,.45);padding:0 20px 26px;}
+
+  @media (max-width:640px){
+    .hero-inner{padding:20px 0 44px;}
+    .faq-callout{padding:20px;}
+    .faq-callout .fc-btn{width:100%;justify-content:center;}
+    .brand{padding-bottom:26px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="brand">
+      <img src="logo.webp" alt="Dell'Iris">
+      <div>
+        <div class="bn">Dell'Iris</div>
+        <div class="bt">Comida que Abraça</div>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/dellirisbr/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61571211772674" target="_blank" rel="noopener" aria-label="Facebook"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.2h2.4l.4-2.9h-2.8V9.05c0-.84.26-1.42 1.47-1.42h1.43V5.05c-.7-.1-1.55-.15-2.32-.15-2.3 0-3.87 1.4-3.87 3.98v2.02H7.9v2.9h2.4V21z"/></svg></a>
+      </div>
+    </div>
+
+    <span class="eyebrow"><i class="ti ti-folders"></i> Central do Licenciado</span>
+    <h1>Tudo o que você precisa, <em>em um só lugar</em></h1>
+    <p class="lead">Documentos, materiais e recursos organizados para facilitar a operação e a gestão da sua unidade Dell'Iris — do contrato ao marketing.</p>
+
+    <div class="faq-callout">
+      <div class="fc-txt">
+        <strong>Ficou com alguma dúvida?</strong>
+        <span>Acesse a Central de Dúvidas com as respostas das perguntas mais frequentes dos licenciados.</span>
+      </div>
+      <a class="fc-btn" href="faq.html"><i class="ti ti-help-circle"></i> Central de Dúvidas</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== NAV ===================== -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#painel-geral"><i class="ti ti-clipboard-text"></i> Painel Geral</a>
+    <a href="#operacional"><i class="ti ti-tools-kitchen-2"></i> Área Operacional</a>
+    <a href="#projetos"><i class="ti ti-trending-up"></i> Projetos de Crescimento</a>
+    <a href="#marketing"><i class="ti ti-speakerphone"></i> Marketing</a>
+    <a href="faq.html"><i class="ti ti-help-circle"></i> Central de Dúvidas</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- PAINEL GERAL -->
+  <section class="section" id="painel-geral">
+    <div class="sec-head">
+      <div>
+        <h2>Painel Geral</h2>
+        <p>Primeiros passos e documentos essenciais da sua jornada.</p>
+      </div>
+    </div>
+    <div class="grid" data-cards="geral"></div>
+  </section>
+
+  <!-- ÁREA OPERACIONAL -->
+  <section class="section" id="operacional">
+    <div class="sec-head">
+      <div>
+        <h2>Área Operacional</h2>
+        <p>Receitas, boas práticas e apoio para o dia a dia da loja.</p>
+      </div>
+    </div>
+    <div class="grid" data-cards="operacional"></div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section class="section" id="projetos">
+    <div class="sec-head">
+      <div>
+        <h2>Projetos de Crescimento</h2>
+        <p>Trilhas por faixa de faturamento para escalar sua operação.</p>
+      </div>
+    </div>
+    <div class="grid" data-cards="projetos"></div>
+  </section>
+
+  <!-- MARKETING -->
+  <section class="section" id="marketing">
+    <div class="sec-head">
+      <div>
+        <h2>Marketing</h2>
+        <p>Conteúdos, fotos e identidade visual prontos para usar.</p>
+      </div>
+    </div>
+    <div class="grid" data-cards="marketing"></div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="foot-inner">
+    <div class="fl">
+      <img src="logo.webp" alt="Dell'Iris">
+      <div>
+        <div class="fbn">Dell'Iris</div>
+        <div class="fbt">Comida que Abraça</div>
+      </div>
+    </div>
+    <div class="foot-socials">
+      <a href="faq.html" aria-label="Central de Dúvidas"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M9.3 9.2a2.8 2.8 0 0 1 5.4 1c0 1.9-2.7 2.6-2.7 2.6"/><circle cx="12" cy="16.7" r=".6" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.instagram.com/dellirisbr/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.facebook.com/profile.php?id=61571211772674" target="_blank" rel="noopener" aria-label="Facebook"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.2h2.4l.4-2.9h-2.8V9.05c0-.84.26-1.42 1.47-1.42h1.43V5.05c-.7-.1-1.55-.15-2.32-.15-2.3 0-3.87 1.4-3.87 3.98v2.02H7.9v2.9h2.4V21z"/></svg></a>
+    </div>
+  </div>
+  <div class="copy">Desenvolvido por Dell'Iris — © 2026. Todos os direitos reservados.</div>
+</footer>
+
+<script>
+const CARDS = {
+  geral:[
+    {t:"Assinatura do Contrato", sub:"Documento formal do licenciamento", ic:"ti-writing-sign", type:"file", href:"https://drive.google.com/file/d/1_tVSwbn-2awxGPg9RD2RxytO_6ESmf_y/view?usp=drive_link"},
+    {t:"Boas-Vindas", sub:"Guia de introdução para novos licenciados", ic:"ti-confetti", type:"file", href:"https://drive.google.com/file/d/1wPXiAoW5yKKXsQp6GFTUVJ377cqbDkNa/view?usp=drive_link"},
+    {t:"Uso do Checklist de Abertura", sub:"Passo a passo para inaugurar a loja", ic:"ti-checklist", type:"file", href:"https://drive.google.com/file/d/1f9NL6QWw7NyBQVzhq1iGfrrCDmLaKFGs/view?usp=drive_link"}
+  ],
+  operacional:[
+    {t:"Área Operacional", sub:"Pasta geral de materiais da operação", ic:"ti-building-store", type:"folder", href:"https://drive.google.com/drive/folders/1n4QEBcFMGlLwZp0SA9V53HQK742T-ltc?usp=drive_link"},
+    {t:"Receitas Dell'Iris", sub:"Fichas técnicas e modo de preparo", ic:"ti-chef-hat", type:"folder", href:"https://drive.google.com/drive/folders/1n2BS4Ud1n3Ws8m2V1XtOS0GE3pC7WrS4?usp=drive_link"},
+    {t:"Boas Práticas na Cozinha", sub:"Padrões operacionais da cozinha", ic:"ti-flame", type:"folder", href:"https://drive.google.com/drive/folders/1q5uELVBLqRzUFUxn0UKJ_sVGT6o1copN?usp=drive_link"},
+    {t:"Comitês", sub:"Grupos de acompanhamento colaborativo", ic:"ti-users-group", type:"folder", href:"https://drive.google.com/drive/folders/1Nk4ChjhAXvWTgxccf4gLiWIx-KUbrEWs?usp=drive_link"},
+    {t:"Mentoria Financeira", sub:"Apoio para a gestão financeira", ic:"ti-cash", type:"folder", href:"https://drive.google.com/drive/folders/1BVmQ4nnd_vlVF0jorO8dbAva1FO4_jVu?usp=drive_link"}
+  ],
+  projetos:[
+    {t:"Projeto Tração", badge:"0 a 50K", sub:"Base e primeiros resultados", ic:"ti-rocket", type:"folder", href:"https://drive.google.com/drive/folders/1jR1ddqOh93DmkmuSm6M4IbXNuesWi52w?usp=sharing"},
+    {t:"Projeto Controle", badge:"50 a 100K", sub:"Estruturação da operação", ic:"ti-adjustments", type:"folder", href:"https://drive.google.com/drive/folders/1xK3yZm1WKUCz520urI1333b9XNbzQ-s7?usp=sharing"},
+    {t:"Projeto Domínio", badge:"100 a 150K", sub:"Expansão e consistência", ic:"ti-target-arrow", type:"folder", href:"https://drive.google.com/drive/folders/19ZR2L3jUXnS45PJgmA3pwuV2Qip9amFB?usp=sharing"},
+    {t:"Projeto Escala", badge:"150 a 250K", sub:"Crescimento avançado", ic:"ti-trending-up", type:"folder", href:"https://drive.google.com/drive/folders/14-xzjHftc0uJlagiDh8b5efFsF5IBOFC?usp=sharing"}
+  ],
+  marketing:[
+    {t:"Conteúdos Prontos para Instagram", sub:"Posts prontos para publicar", ic:"ti-brand-instagram", type:"folder", href:"https://drive.google.com/drive/folders/1MxozpXYgjwObF6XV-p6QPh3TFQUTNG2a?usp=drive_link"},
+    {t:"Conteúdos para Edição", sub:"Templates editáveis da marca", ic:"ti-photo-edit", type:"folder", href:"https://drive.google.com/drive/folders/1Ff1P887dYxlU9Z3UJ8NOCfe-1VwvjhM3?usp=drive_link"},
+    {t:"Fotos do Cardápio", sub:"Imagens dos produtos", ic:"ti-camera", type:"folder", href:"https://drive.google.com/drive/folders/1QfDs_Go3RwZPyk_y7jrjGv2NarINGTkx?usp=drive_link"},
+    {t:"Fotos para Instagram", sub:"Imagens no formato do feed", ic:"ti-photo", type:"folder", href:"https://drive.google.com/drive/folders/15jnaVj8d0MtjUI3l6N_NhPQzxFkpeH-3?usp=drive_link"},
+    {t:"Identidade Visual e Logomarca", sub:"Logo e diretrizes visuais", ic:"ti-palette", type:"folder", href:"https://drive.google.com/drive/folders/1119KZtWEcXhxykdoO5m2zzHIp4VCm-rr?usp=drive_link"}
+  ]
+};
+
+const DRIVE_SVG = `<svg class="ic" viewBox="0 0 87.3 78" aria-hidden="true"><path fill="#0066da" d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8H0c0 1.55.4 3.1 1.2 4.5z"/><path fill="#00ac47" d="M43.65 25L29.9 1.2c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44C.4 49.9 0 51.45 0 53h27.5z"/><path fill="#ea4335" d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H59.8l5.85 11.5z"/><path fill="#00832d" d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z"/><path fill="#2684fc" d="M59.8 53H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z"/><path fill="#ffba00" d="M73.4 26.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25l16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z"/></svg>`;
+
+function render(){
+  document.querySelectorAll('[data-cards]').forEach(grid=>{
+    const list = CARDS[grid.dataset.cards] || [];
+    grid.innerHTML = list.map(c=>{
+      const tagTxt = c.type==='file' ? 'Documento' : 'Pasta';
+      const badge  = c.badge ? `<span class="c-badge">${c.badge}</span>` : '';
+      const sub    = c.sub ? `<p class="c-sub">${c.sub}</p>` : '';
+      return `<a class="card" href="${c.href}" target="_blank" rel="noopener">
+        ${badge}
+        <div class="c-top">
+          <div class="c-ic">${DRIVE_SVG}</div>
+          <span class="c-tag ${c.type}">${tagTxt}</span>
+        </div>
+        <h3>${c.t}</h3>
+        ${sub}
+        <span class="c-go">Acessar <i class="ti ti-arrow-right"></i></span>
+      </a>`;
+    }).join('');
+  });
+}
+render();
+</script>
+</body>
+</html>
