@@ -46,9 +46,11 @@
 
   .hero-top{display:flex;align-items:center;gap:32px;}
   .hero-logo{
-    width:min(52%,600px);height:auto;object-fit:contain;flex-shrink:0;margin-left:auto;
-    -webkit-mask-image:radial-gradient(52% 54% at 50% 50%, #000 72%, rgba(0,0,0,0) 98%);
-    mask-image:radial-gradient(52% 54% at 50% 50%, #000 72%, rgba(0,0,0,0) 98%);
+    width:min(52%,640px);height:auto;object-fit:contain;flex-shrink:0;margin-left:auto;
+    -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 16%),linear-gradient(to left, transparent 0, #000 16%);
+    -webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to bottom, transparent 0, #000 16%),linear-gradient(to left, transparent 0, #000 16%);
+    mask-composite:intersect;
   }
   .hero-copy{flex:1;min-width:0;text-align:left;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;}
   .hero h1{
